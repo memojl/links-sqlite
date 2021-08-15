@@ -3,6 +3,7 @@ _temp/
 _docs/
 _templates/
 _template/
+api/v1/includes/scfg.php
+scfg.php
 db/
 *.db
-api/v1/includes/scfg.php
