@@ -5,3 +5,4 @@ _templates/
 _template/
 db/
 *.db
+api/v1/includes/scfg.php
