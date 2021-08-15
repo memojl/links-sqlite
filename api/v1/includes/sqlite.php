@@ -1,5 +1,5 @@
 <?php 
-$dbSQLite='links.db'; //Nombre de la base de datos
+$dbSQLite='../db/links.db'; //Nombre de la base de datos
 
 //Conexion a la base de datos Sqlite
 function connect_sqlite($dbSQLite){
