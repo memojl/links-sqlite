@@ -1,125 +1,43 @@
-<div class="sidebar">
-    <div class="logo-details">
-      <i class='bx bxl-c-plus-plus'></i>
-      <span class="logo_name">AdminLab</span>
-    </div>
-    <ul class="nav-links">
-      <li>
-        <a href="#">
-          <i class='bx bx-grid-alt' ></i>
-          <span class="link_name">Dashboard</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">Category</a></li>
-        </ul>
-      </li>
-      <li>
-        <div class="iocn-link">
-          <a href="#">
-            <i class='bx bx-collection' ></i>
-            <span class="link_name">Category</span>
-          </a>
-          <i class='bx bxs-chevron-down arrow' ></i>
-        </div>
-        <ul class="sub-menu">
-          <li><a class="link_name" href="#">Category</a></li>
-          <li><a href="#">HTML & CSS</a></li>
-          <li><a href="#">JavaScript</a></li>
-          <li><a href="#">PHP & MySQL</a></li>
-        </ul>
-      </li>
-      <li>
-        <div class="iocn-link">
-          <a href="#">
-            <i class='bx bx-book-alt' ></i>
-            <span class="link_name">Posts</span>
-          </a>
-          <i class='bx bxs-chevron-down arrow' ></i>
-        </div>
-        <ul class="sub-menu">
-          <li><a class="link_name" href="#">Posts</a></li>
-          <li><a href="#">Web Design</a></li>
-          <li><a href="#">Login Form</a></li>
-          <li><a href="#">Card Design</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="#">
-          <i class='bx bx-pie-chart-alt-2' ></i>
-          <span class="link_name">Analytics</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">Analytics</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="#">
-          <i class='bx bx-line-chart' ></i>
-          <span class="link_name">Chart</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">Chart</a></li>
-        </ul>
-      </li>
-      <li>
-        <div class="iocn-link">
-          <a href="#">
-            <i class='bx bx-plug' ></i>
-            <span class="link_name">Plugins</span>
-          </a>
-          <i class='bx bxs-chevron-down arrow' ></i>
-        </div>
-        <ul class="sub-menu">
-          <li><a class="link_name" href="#">Plugins</a></li>
-          <li><a href="#">UI Face</a></li>
-          <li><a href="#">Pigments</a></li>
-          <li><a href="#">Box Icons</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="#">
-          <i class='bx bx-compass' ></i>
-          <span class="link_name">Explore</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">Explore</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="#">
-          <i class='bx bx-history'></i>
-          <span class="link_name">History</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">History</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="#">
-          <i class='bx bx-cog' ></i>
-          <span class="link_name">Setting</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">Setting</a></li>
-        </ul>
-      </li>
-      <li>
-    <div class="profile-details">
-      <div class="profile-content">
-        <img src="./src/assets/img/sinfoto.png" alt="profileImg">
+<div class="container p-4">
+  <div class="row">
+      <div class="col-md-3">
+          <div class="card text-center">
+              <div class="card-body">
+                  <a href="#/links/add">
+                      <h3 class="card-title text-uppercase">
+                          Agregar
+                      </h3>
+                  </a>
+                  <p class="m-2" style="font-size: 42px;"><i class="fas fa-plus"></i></p>
+                  <a class="btn btn-info" href="#/links/add">Agregar</a>
+              </div>
+          </div>
       </div>
-      <div class="name-job">
-        <div class="profile_name">Memojl</div>
-        <div class="job">Web Desginer</div>
+      {{#each links}}
+      <div class="col-md-3">
+          <div class="card text-center">
+              <div class="card-body">
+                  <a href="{{url}}" target="_blank">
+                      <h3 class="card-title text-uppercase">
+                          {{title}}
+                      </h3>
+                  </a>
+                  <p class="m-2">{{description}}</p>
+                  <p class="text-muted">
+                      {{timeago created_at}}
+                  </p>
+                  <a class="btn btn-danger" href="#/links/delete/{{id}}">Borrar</a>
+                  <a class="btn btn-secondary" href="#/links/edit/{{id}}">Editar</a>
+              </div>
+          </div>
       </div>
-      <i class='bx bx-log-out'></i>
-    </div>
-  </li>
-</ul>
+      {{else}}
+      <div class="col-md-4 mx-auto">
+          <div class="card card-body text-center">
+              <p>There are not Links saved yet.</p>
+              <a href="#/links/add">Create One!</a>
+          </div>
+      </div>
+      {{/each}}
   </div>
-  <section class="home-section">
-    <div class="home-content">
-      <i class='bx bx-menu' ></i>
-      <span class="text">DASHBOARD</span>
-    </div>
-  </section>
+</div>

@@ -5,8 +5,8 @@ import { logout } from "../controllers/logout.js";
 import { dashboard } from "../controllers/dashboard.js";
 
 const routes_session = ['/dashboard'];
-const no_menu = ['/dashboard','/forget','/login','/logout','/registro'];
-const menu_web = ['/','/Home','/nosotros','/productos','/contacto'];
+const no_menu = ['/forget','/login','/logout','/registro'];
+const menu_web = ['/','/Home','/dashboard','/profile','/links'];
 
 const router = async (hash,url_mod,url404) =>{consoleLocal('log','hash=>'+hash);
     const pages = [].concat(menu_web,no_menu);

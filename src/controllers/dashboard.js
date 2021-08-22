@@ -2,6 +2,7 @@
 
 function btnSidebar(){
 //<![CDATA[
+  /*
   if(document.createStyleSheet) {
     document.createStyleSheet('http://localhost/MisSitios/links/src/assets/css/dashboard.css');
   }
@@ -12,6 +13,7 @@ function btnSidebar(){
     newSS.href='data:text/css,'+escape(styles);
     document.getElementsByTagName("head")[0].appendChild(newSS);
   }
+  */
 //]]>
 
 let btnSalir = document.querySelector('.bx-log-out')
