@@ -4,6 +4,7 @@ _docs/
 _templates/
 _template/
 conexion/
+node_modules/
 api/v1/includes/scfg.php
 admin/scfg.php
 db/
