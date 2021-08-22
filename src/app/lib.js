@@ -17,7 +17,7 @@ var fecha = year + '-' + mon + '-' + day
 //var mod = '';//var ext = '';//var id = '';
 
 /*VARIABLES DE ENTORNO*/
-const proyecto = 'mandragoraJS'; //PROYECTO
+const proyecto = 'links'; //PROYECTO
 const sub_path = '#/'; //SUB_PATH
 const src_path = 'src/'; //RESOURCE PATH
 const page_path = src_path + 'pages/'; //PAGE PATH
