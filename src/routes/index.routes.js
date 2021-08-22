@@ -4,9 +4,9 @@ import { login } from "../controllers/login.js";
 import { logout } from "../controllers/logout.js";
 import { dashboard } from "../controllers/dashboard.js";
 
-const routes_session = ['/dashboard'];
+const routes_session = ['/dashboard','/profile','/links','/list'];
 const no_menu = ['/forget','/login','/logout','/registro'];
-const menu_web = ['/','/Home','/dashboard','/profile','/links'];
+const menu_web = ['/','/Home','/dashboard','/profile','/links','/list'];
 
 const router = async (hash,url_mod,url404) =>{consoleLocal('log','hash=>'+hash);
     const pages = [].concat(menu_web,no_menu);
@@ -30,4 +30,4 @@ function controlRoutes(route){ consoleLocal('log','route='+route);
   if(route=='dashboard/index'){dashboard();}
 }
 
-export {no_menu,router,controlRoutes};
+export {no_menu,routes_session,router,controlRoutes};

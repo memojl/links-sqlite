@@ -42,7 +42,7 @@ function dashboard(){
   //Retardo para activar btnLogin
   setTimeout(function(){
     console.log('btnSidebar Activado');
-    btnSidebar();
+    //btnSidebar();
   },1000);
 }
 
