@@ -33,9 +33,11 @@ function urlVars(vars){
 
 function menuWeb(h,no_menu,routes_session){
   let menu = document.querySelector('#menuweb');
-  let menuList = document.querySelector('#menuList');
+  let menuList1 = document.querySelector('#menuList1');
+  let menuList2 = document.querySelector('#menuList2');
   let n = no_menu.length;//console.warn('count:'+n);
   let k = routes_session.length;
+  
   menu.classList.remove('d-none');
   for(var i=0; i<n; i++){//console.warn(i+'|'+no_menu[i]);
     var nm = '#' + no_menu[i];
@@ -44,33 +46,15 @@ function menuWeb(h,no_menu,routes_session){
     }
   }
 
-  if(menuList){
-    for(var i=0; i<k; i++){
-      var r_ses = '#' + routes_session[i];
-      if(h==r_ses){
-        menuList.innerHTML=`
-        <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">
-        Links
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#/links">All Links</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#/links/add">Add A Link</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#/profile">Profile</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#/logout">Logout</a>
-      </li>        
-        `;
-      }
+  menuList1.classList.remove('d-none');
+  menuList2.classList.add('d-none')
+  for(var i=0; i<k; i++){//console.warn(i+'|'+routes_session[i]);
+    var rs = '#' + routes_session[i];   //console.warn(nm);
+    if(h==rs){//console.warn('Session: '+ nm + '=' + h);
+      menuList1.classList.add('d-none');
+      menuList2.classList.remove('d-none');
     }
   }
-
 }
 
 
