@@ -28,6 +28,7 @@ function controlRoutes(route){ consoleLocal('log','route='+route);
   if(route=='login/index'){login();}
   if(route=='logout/index'){logout();}
   if(route=='dashboard/index'){dashboard();}
+  //if(route=='profile/index'){profile();}
 }
 
 export {no_menu,routes_session,router,controlRoutes};

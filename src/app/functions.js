@@ -57,8 +57,6 @@ function menuWeb(h,no_menu,routes_session){
   }
 }
 
-
-
 const fileExist = async (mod,url)=>{
   let new_Mod=mod;console.log(url);
   let response = await fetch(url);
