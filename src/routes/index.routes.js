@@ -5,9 +5,9 @@ import { logout } from "../controllers/logout.js";
 import { dashboard } from "../controllers/dashboard.js";
 import { links } from "../controllers/links.js";
 
-const routes_session = ['/dashboard','/profile','/links','/list'];
+const routes_session = ['/dashboard','/profile','/links','/links/add','/links/edit','/list'];
 const no_menu = ['/forget','/login','/logout','/registro'];
-const menu_web = ['/','/Home','/dashboard','/profile','/links','/list'];
+const menu_web = ['/','/Home','/dashboard','/profile','/links','/links/add','/links/edit','/list'];
 
 const router = async (hash,url_mod,url404) =>{consoleLocal('log','hash=>'+hash);
     const pages = [].concat(menu_web,no_menu);
@@ -15,7 +15,7 @@ const router = async (hash,url_mod,url404) =>{consoleLocal('log','hash=>'+hash);
       for(let i=0;i<pages.length;i++){
         var ps = '#' + pages[i];
         if(hash==ps){v1=1;break;}
-      }consoleLocal('log',hash+'='+ps);
+      }consoleLocal('warn',hash+'='+ps);
       if(v1==1){
         getRoutes(hash,url_mod,routes_session);
       }else{
@@ -31,6 +31,7 @@ function controlRoutes(route){ consoleLocal('log','route='+route);
   if(route=='dashboard/index'){dashboard();}
   //if(route=='profile/index'){profile();}
   if(route=='links/index'){links();}
+  if(route=='links/add'){}
 }
 
 export {no_menu,routes_session,router,controlRoutes};
