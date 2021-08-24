@@ -45,7 +45,7 @@ function menuWeb(h,no_menu,routes_session){
       menu.classList.add('d-none');
     }
   }
-
+  
   menuList1.classList.remove('d-none');
   menuList2.classList.add('d-none')
   for(var i=0; i<k; i++){//console.warn(i+'|'+routes_session[i]);
@@ -55,6 +55,7 @@ function menuWeb(h,no_menu,routes_session){
       menuList2.classList.remove('d-none');
     }
   }
+  
 }
 
 const fileExist = async (mod,url)=>{
