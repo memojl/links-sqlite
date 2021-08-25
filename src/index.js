@@ -15,9 +15,9 @@ import {no_menu,routes_session,router,controlRoutes} from './routes/index.routes
 window.addEventListener('hashchange',()=>{
     consoleLocal('warn','Event Listener');
     const v = variables();
-    const {hash,URL,pag_name,vars_Url,mod,ext,id,ext2,route,url_mod,url_m,url404} = v;
+    const {hash,URL,pag_name,vars_Url,mod,ext,id,ext2,route,hash2,url_mod,url_m,url404} = v;
     menuWeb(hash,no_menu,routes_session);
-    router(hash,url_mod,url404);
+    router(hash,hash2,url_mod,url404);
     controlRoutes(route);
 
     reMod(mod);

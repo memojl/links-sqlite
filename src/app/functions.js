@@ -41,16 +41,16 @@ function menuWeb(h,no_menu,routes_session){
   menu.classList.remove('d-none');
   for(var i=0; i<n; i++){//console.warn(i+'|'+no_menu[i]);
     var nm = '#' + no_menu[i];
-    if(h==nm){//console.warn('Session: '+ nm + '=' + h);
+    if(h==nm){//console.warn('Session: '+ h + '=' + nm);
       menu.classList.add('d-none');
     }
   }
-  
+  let token = localStorage.getItem("Token");
   menuList1.classList.remove('d-none');
   menuList2.classList.add('d-none')
   for(var i=0; i<k; i++){//console.warn(i+'|'+routes_session[i]);
-    var rs = '#' + routes_session[i];   //console.warn(nm);
-    if(h==rs){//console.warn('Session: '+ nm + '=' + h);
+    var rs = '#' + routes_session[i];   //console.warn(rs);
+    if(h==rs && token!=null){console.warn('Session: '+ h + '=' + rs);
       menuList1.classList.add('d-none');
       menuList2.classList.remove('d-none');
     }
@@ -83,7 +83,7 @@ const getRoutes = async (hash,url,routes_session)=>{
         html = `<div class="alert alert-warning" role="alert"><strong>No Autorizado:</strong> No tiene permiso para esta página. <a href="#/" class="alert-link">Volver al Inicio</a></div>`
       }
     }
-    if(hash==r_ses){consoleLocal('warn',hash+'='+r_ses);}   
+    if(hash==r_ses){consoleLocal('warn',hash+'='+r_ses);} consoleLocal('warn','Validación(getRoutes):'+hash+'='+r_ses);  
     content.innerHTML=html;    
   }
 }

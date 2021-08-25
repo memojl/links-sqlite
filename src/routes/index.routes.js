@@ -9,13 +9,13 @@ const routes_session = ['/dashboard','/profile','/links','/links/add','/links/ed
 const no_menu = ['/forget','/login','/logout','/registro'];
 const menu_web = ['/','/Home','/dashboard','/profile','/links','/links/add','/links/edit','/list'];
 
-const router = async (hash,url_mod,url404) =>{consoleLocal('log','hash=>'+hash);
+const router = async (hash,hash2,url_mod,url404) =>{consoleLocal('log','hash=>'+hash);
     const pages = [].concat(menu_web,no_menu);
     if(hash!=''){let v1=0;
       for(let i=0;i<pages.length;i++){
         var ps = '#' + pages[i];
-        if(hash==ps){v1=1;break;}
-      }consoleLocal('warn',hash+'='+ps);
+        if(hash2==ps){v1=1;break;}
+      }consoleLocal('info',hash2+'='+ps);
       if(v1==1){
         getRoutes(hash,url_mod,routes_session);
       }else{
