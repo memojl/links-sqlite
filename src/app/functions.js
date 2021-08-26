@@ -36,11 +36,11 @@ function menuWeb(h,no_menu,routes_session){
   let menuList1 = document.querySelector('#menuList1');
   let menuList2 = document.querySelector('#menuList2');
   let n = no_menu.length;//console.warn('count:'+n);
-  let k = routes_session.length;
+  let k = routes_session.length;//console.warn('count:'+k);
   
   menu.classList.remove('d-none');
   for(var i=0; i<n; i++){//console.warn(i+'|'+no_menu[i]);
-    var nm = '#' + no_menu[i];
+    var nm = '#' + no_menu[i];//console.warn(nm);
     if(h==nm){//console.warn('Session: '+ h + '=' + nm);
       menu.classList.add('d-none');
     }
@@ -49,8 +49,8 @@ function menuWeb(h,no_menu,routes_session){
   menuList1.classList.remove('d-none');
   menuList2.classList.add('d-none')
   for(var i=0; i<k; i++){//console.warn(i+'|'+routes_session[i]);
-    var rs = '#' + routes_session[i];   //console.warn(rs);
-    if(h==rs && token!=null){console.warn('Session: '+ h + '=' + rs);
+    var rs = '#' + routes_session[i]; //console.warn(h + '=' + rs);
+    if(h==rs || token!=null){//console.warn('Session: '+ h + '=' + rs);
       menuList1.classList.add('d-none');
       menuList2.classList.remove('d-none');
     }
@@ -76,14 +76,14 @@ const getRoutes = async (hash,url,routes_session)=>{
   }else{
     consoleLocal('log','OK');
     var token = localStorage.getItem("Token");consoleLocal('log','token='+token);
-    let html = await response.text();consoleLocal('log',html);
+    let html = await response.text();//consoleLocal('log',html);
     for(var i=0; i<routes_session.length;i++){
       var r_ses = '#' + routes_session[i];
       if(token==null && hash==r_ses){
         html = `<div class="alert alert-warning" role="alert"><strong>No Autorizado:</strong> No tiene permiso para esta página. <a href="#/" class="alert-link">Volver al Inicio</a></div>`
       }
     }
-    if(hash==r_ses){consoleLocal('warn',hash+'='+r_ses);} consoleLocal('warn','Validación(getRoutes):'+hash+'='+r_ses);  
+    if(hash==r_ses){consoleLocal('warn',hash+'='+r_ses);} //consoleLocal('warn','Validación(getRoutes):'+hash+'='+r_ses);  
     content.innerHTML=html;    
   }
 }

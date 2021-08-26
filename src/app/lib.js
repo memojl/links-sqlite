@@ -99,7 +99,7 @@ function inicio() {
   console.log('Corriendo funcion inicio');
   const v = variables();consoleLocal('log',v);
   const {hash,URL,pag_name,vars_Url,mod,ext,id,ext2,route,hash2,url_mod,url_m,url404} = v;
-  menuWeb(hash,no_menu,routes_session);
+  menuWeb(hash2,no_menu,routes_session);
   router(hash,hash2,url_mod,url404);
   controlRoutes(route);
 
