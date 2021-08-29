@@ -5,6 +5,7 @@ import { logout } from "../controllers/logout.js";
 import { dashboard } from "../controllers/dashboard.js";
 import { links } from "../controllers/links.js";
 import { linksAdd } from "../controllers/link-add.js";
+import { linksEdit } from "../controllers/link-edit.js";
 
 const routes_session = ['/dashboard','/profile','/links','/links/add','/links/edit','/list'];
 const no_menu = ['/forget','/login','/logout','/registro'];
@@ -26,13 +27,14 @@ const router = async (hash,hash2,url_mod,url404) =>{consoleLocal('log','hash=>'+
     }
 };
 
-function controlRoutes(route){ consoleLocal('log','route='+route);
+function controlRoutes(route,id){ consoleLocal('log','route='+route);
   if(route=='login/index'){login();}
   if(route=='logout/index'){logout();}
   if(route=='dashboard/index'){dashboard();}
   //if(route=='profile/index'){profile();}
   if(route=='links/index'){links();}
   if(route=='links/add'){linksAdd();}
+  if(route=='links/edit'){linksEdit(id);}
 }
 
 export {no_menu,routes_session,router,controlRoutes};
