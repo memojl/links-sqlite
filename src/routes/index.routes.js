@@ -4,6 +4,7 @@ import { login } from "../controllers/login.js";
 import { logout } from "../controllers/logout.js";
 import { dashboard } from "../controllers/dashboard.js";
 import { links } from "../controllers/links.js";
+import { linksAdd } from "../controllers/link-add.js";
 
 const routes_session = ['/dashboard','/profile','/links','/links/add','/links/edit','/list'];
 const no_menu = ['/forget','/login','/logout','/registro'];
@@ -31,7 +32,7 @@ function controlRoutes(route){ consoleLocal('log','route='+route);
   if(route=='dashboard/index'){dashboard();}
   //if(route=='profile/index'){profile();}
   if(route=='links/index'){links();}
-  if(route=='links/add'){}
+  if(route=='links/add'){linksAdd();}
 }
 
 export {no_menu,routes_session,router,controlRoutes};
