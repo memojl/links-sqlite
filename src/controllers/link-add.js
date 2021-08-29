@@ -17,8 +17,7 @@ function btnGuardar(e){
   console.log('Validación de Datos');
   let tok1 = localStorage.getItem('Token');
   let tok2 = tok1.replace('"', '');
-  let Token = tok2.replace('"', '');
-  console.log('TOKEN: ' + Token);
+  let Token = tok2.replace('"', '');//console.log('TOKEN: ' + Token);
   let tit = document.getElementById('title').value;
   let url = document.getElementById('url').value;
   let des = document.getElementById('description').value;
@@ -47,8 +46,7 @@ function btnGuardar(e){
       //Redireccionar al Dashboard
       location.href= dominio + path_url + '#/links';
   })
-  .catch(err=>console.error(err));
-  
+  .catch(err=>console.error(err));  
 }
 
 function linksAdd(){
