@@ -17,7 +17,7 @@ window.addEventListener('hashchange',()=>{consoleLocal('warn','Event Listener');
     const {hash,URL,pag_name,vars_Url,mod,ext,id,ext2,route,hash2,url_mod,url_m,url404} = v;
     menuWeb(hash2,no_menu,routes_session);
     router(hash,hash2,url_mod,url404);
-    controlRoutes(route);
+    controlRoutes(route,id);
 
     reMod(mod);
     consoleLocal('log',consola(v));

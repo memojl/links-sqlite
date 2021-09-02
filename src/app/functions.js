@@ -50,7 +50,7 @@ function menuWeb(h,no_menu,routes_session){
   menuList2.classList.add('d-none')
   for(var i=0; i<k; i++){//console.warn(i+'|'+routes_session[i]);
     var rs = '#' + routes_session[i]; //console.warn(h + '=' + rs);
-    if(h==rs || token!=null){//console.warn('Session: '+ h + '=' + rs);
+    if(h==rs || token!=null && token!=undefined){//console.warn('Session: '+ h + '=' + rs);
       menuList1.classList.add('d-none');
       menuList2.classList.remove('d-none');
     }
@@ -79,7 +79,7 @@ const getRoutes = async (hash,url,routes_session)=>{
     let html = await response.text();//consoleLocal('log',html);
     for(var i=0; i<routes_session.length;i++){
       var r_ses = '#' + routes_session[i];
-      if(token==null && hash==r_ses){
+      if((token==null || token==undefined) && hash==r_ses){
         html = `<div class="alert alert-warning" role="alert"><strong>No Autorizado:</strong> No tiene permiso para esta página. <a href="#/" class="alert-link">Volver al Inicio</a></div>`
       }
     }
