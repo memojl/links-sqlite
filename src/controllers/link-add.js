@@ -8,7 +8,7 @@ var page_url = dominio + path_url;
 const api_url = page_url + 'api/';
 
 function btnAdd(){
-  const btnForm = document.getElementById('form-add');
+  const btnForm = document.getElementById('form-add');//console.log(btnForm);
   btnForm.addEventListener('submit', btnGuardar);
 }
 
