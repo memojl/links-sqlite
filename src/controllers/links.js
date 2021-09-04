@@ -1,3 +1,4 @@
+//import '../assets/js/sweetalert2.all.min.js';
 //LINKS.JS
 
 const linksList = async () => {
@@ -12,7 +13,7 @@ const linksList = async () => {
       list.innerHTML += `
         <div class="col-md-3">
           <div class="card text-center">
-              <div class="card-body">
+              <div id="${ID}" class="card-body">
                   <a href="${url}" target="_blank">
                       <h3 class="card-title text-uppercase">
                           ${title}
@@ -22,7 +23,8 @@ const linksList = async () => {
                   <p class="text-muted">
                       ${created_at}
                   </p>
-                  <a class="btn btn-danger" href="#/links/delete/${ID}">Borrar</a>
+                  <button class="btn btn-danger">Borrar</button>
+                  <!--a class="btn btn-danger" href="#/links/delete/${ID}">Borrar</a-->
                   <a class="btn btn-secondary" href="#/links/edit/${ID}">Editar</a>
               </div>
           </div>
@@ -39,6 +41,50 @@ const linksList = async () => {
       `;
     }
   });
+
+  //let btnBorrar = document.querySelectorAll('.btnDanger');
+  //console.log(btnBorrar);
+  //btnBorrar.addEventListener('click', borrar);
+  $(document).on('click','.btnDanger', function () {
+    //e.preventDefault();
+    const element = $(this)[0].parentElement;
+    const id = $(element).attr('id');
+    Swal.fire({
+      title: 'Â¿Esta seguro de eliminar el registro (' + id + ')?',
+      text: "Â¡Esta operaciÃ³n no se puede revertir!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#d33',
+      cancelButtonColor: '#3085d6',
+      confirmButtonText: 'Borrar'
+    }).then((result) => {
+      if(result.value) {
+        console.log('Link Borrado');
+        Swal.fire('Â¡Eliminado!', 'El registro ha sido eliminado.', 'success')
+      }
+    })
+  });
+
+}
+
+function borrar(e) {
+  e.preventDefault();
+  const element = $(this)[0].parentElement;
+  const id = $(element).attr('id');
+  Swal.fire({
+    title: 'Â¿Esta seguro de eliminar el registro (' + id + ')?',
+    text: "Â¡Esta operaciÃ³n no se puede revertir!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#d33',
+    cancelButtonColor: '#3085d6',
+    confirmButtonText: 'Borrar'
+  }).then((result) => {
+    if(result.value) {
+      console.log('Link Borrado');
+      Swal.fire('Â¡Eliminado!', 'El registro ha sido eliminado.', 'success')
+    }
+  })
 }
 
 function links(){
