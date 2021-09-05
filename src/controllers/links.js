@@ -1,5 +1,13 @@
 //import '../assets/js/sweetalert2.all.min.js';
 //LINKS.JS
+/* VARIABLES CONSTANTES*/
+var loc = window.location;
+const host = loc.host;
+const dominio = loc.origin + '/';
+const path_url1 = loc.pathname;
+var path_url = path_url1.replace("/", "");
+var page_url = dominio + path_url;
+const api_url = page_url + 'api/';
 
 const linksList = async () => {
   let url = 'http://localhost/MisSitios/links/api/v1/links/';
@@ -23,7 +31,7 @@ const linksList = async () => {
                   <p class="text-muted">
                       ${created_at}
                   </p>
-                  <button class="btn btn-danger">Borrar</button>
+                  <button data-id="${ID}" class="btn btn-danger">Borrar</button>
                   <!--a class="btn btn-danger" href="#/links/delete/${ID}">Borrar</a-->
                   <a class="btn btn-secondary" href="#/links/edit/${ID}">Editar</a>
               </div>
@@ -42,35 +50,52 @@ const linksList = async () => {
     }
   });
 
-  //let btnBorrar = document.querySelectorAll('.btnDanger');
-  let btnBorrar = document.getElementsByClassName('.btnDanger');
-  console.log(btnBorrar);
-  btnBorrar.addEventListener('click', borrar);
-/*
-  $(document).on('click','.btnDanger', function () {
-    //e.preventDefault();
-    const element = $(this)[0].parentElement;
-    const id = $(element).attr('id');
-    Swal.fire({
-      title: 'Â¿Esta seguro de eliminar el registro (' + id + ')?',
-      text: "Â¡Esta operaciÃ³n no se puede revertir!",
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#d33',
-      cancelButtonColor: '#3085d6',
-      confirmButtonText: 'Borrar'
-    }).then((result) => {
-      if(result.value) {
-        console.log('Link Borrado');
-        Swal.fire('Â¡Eliminado!', 'El registro ha sido eliminado.', 'success')
-      }
+  let lista = document.getElementById('list');
+  let tok1 = localStorage.getItem('Token');
+  let tok2 = tok1.replace('"', '');
+  let Token = tok2.replace('"', '');//console.log('TOKEN: ' + Token);
+
+    lista.addEventListener('click', (e)=>{
+      const id = e.target.getAttribute('data-id');//console.log(id);
+      Swal.fire({
+        title: '¿Esta seguro de eliminar el registro (' + id + ')?',
+        text: "¡Esta operación no se puede revertir!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#3085d6',
+        confirmButtonText: 'Borrar'
+      }).then((result) => {
+        if(result.value) {//console.log('Link Borrado');        
+          var datos = {
+            //ID: id,
+            token: Token
+          }
+          const url_post = api_url + 'v1/links/' + id;//console.warn(url_post);  
+          fetch(url_post,{
+            method: 'DELETE',
+            headers: {
+              'Content-Type':'application/json'
+            },
+            body: JSON.stringify(datos)
+          }).then(res=>res.json()).then(data=>{console.log(data);
+            //Redireccionar al Dashboard location.href= dominio + path_url + '#/links';
+            borrar();
+          })
+          .catch(err=>console.error(err));
+          Swal.fire('¡Eliminado!', 'El registro ha sido eliminado.', 'success')
+        }
+      })
     })
-  });
-*/
+  //})
 }
 
-function borrar(e) {
+function borrar() {
   console.log('Click Eliminar');
+  setTimeout(function(){
+    console.log('links Recargado');
+    location.href= dominio + path_url + '#/links';
+  },2000);
 }
 
 function links(){

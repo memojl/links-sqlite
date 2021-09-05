@@ -43,8 +43,7 @@ function btnGuardar(e){
           'Content-Type':'application/json'
       },
       body: JSON.stringify(datos)
-  }).then(res=>res.json()).then(data=>{
-      console.log(data);
+  }).then(res=>res.json()).then(data=>{console.log(data);
       //Redireccionar al Dashboard
       location.href= dominio + path_url + '#/links';
   })

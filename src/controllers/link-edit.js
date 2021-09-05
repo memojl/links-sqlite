@@ -80,15 +80,14 @@ function btnEditar(e){
       token: Token
   }
   //console.log(datos);
-  const url_post = api_url + 'v1/links/'+id;console.warn(url_post);  
+  const url_post = api_url + 'v1/links/'+id;//console.warn(url_post);  
   fetch(url_post,{
       method: 'PUT',
       headers: {
           'Content-Type':'application/json'
       },
       body: JSON.stringify(datos)
-  }).then(res=>res.json()).then(data=>{
-      console.log(data);
+  }).then(res=>res.json()).then(data=>{console.log(data);
       //Redireccionar al Dashboard
       location.href= dominio + path_url + '#/links';
   })
