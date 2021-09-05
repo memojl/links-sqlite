@@ -21,7 +21,7 @@ const formEdit = async (id)=>{
   data.forEach(element => {
     const {ID, title, url, description, cate, user_id, created_at} = element;
     formulario.innerHTML = `
-        <form id="form-edit" action="#/links/add/${ID}" method="POST">
+        <form id="form-edit" action="#/links/edit/${ID}" method="PUT">
             <h2>Editar Link</h2>
             <div class="form-group">
                 <input type="text" id="title" name="title" class="form-control" value="${title}" autofocus>

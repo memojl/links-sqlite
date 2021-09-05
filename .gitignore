@@ -5,6 +5,7 @@ _templates/
 _template/
 conexion/
 node_modules/
+package-lock.json
 api/v1/includes/scfg.php
 admin/scfg.php
 db/

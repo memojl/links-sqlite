@@ -43,8 +43,10 @@ const linksList = async () => {
   });
 
   //let btnBorrar = document.querySelectorAll('.btnDanger');
-  //console.log(btnBorrar);
-  //btnBorrar.addEventListener('click', borrar);
+  let btnBorrar = document.getElementsByClassName('.btnDanger');
+  console.log(btnBorrar);
+  btnBorrar.addEventListener('click', borrar);
+/*
   $(document).on('click','.btnDanger', function () {
     //e.preventDefault();
     const element = $(this)[0].parentElement;
@@ -64,27 +66,11 @@ const linksList = async () => {
       }
     })
   });
-
+*/
 }
 
 function borrar(e) {
-  e.preventDefault();
-  const element = $(this)[0].parentElement;
-  const id = $(element).attr('id');
-  Swal.fire({
-    title: 'Â¿Esta seguro de eliminar el registro (' + id + ')?',
-    text: "Â¡Esta operaciÃ³n no se puede revertir!",
-    icon: 'warning',
-    showCancelButton: true,
-    confirmButtonColor: '#d33',
-    cancelButtonColor: '#3085d6',
-    confirmButtonText: 'Borrar'
-  }).then((result) => {
-    if(result.value) {
-      console.log('Link Borrado');
-      Swal.fire('Â¡Eliminado!', 'El registro ha sido eliminado.', 'success')
-    }
-  })
+  console.log('Click Eliminar');
 }
 
 function links(){
