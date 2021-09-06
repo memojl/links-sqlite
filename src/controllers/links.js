@@ -1,4 +1,3 @@
-//import '../assets/js/sweetalert2.all.min.js';
 //LINKS.JS
 /* VARIABLES CONSTANTES*/
 var loc = window.location;
@@ -15,7 +14,7 @@ const linksList = async () => {
   const data = await response.json();
   //consoleLocal('log',data);
   data.forEach(element => {
-    const {ID, title, url, description, category, user_id, created_at, updated_at} = element;
+    const {ID, title, url, description, cate, user_id, created_at} = element;
     let list = document.querySelector('#list');
     if(element){
       list.innerHTML += `
@@ -27,13 +26,11 @@ const linksList = async () => {
                           ${title}
                       </h3>
                   </a>
+                  <p class="m-2">${cate}</p>
                   <p class="m-2">${description}</p>
-                  <p class="text-muted">
-                      ${created_at}
-                  </p>
-                  <button data-id="${ID}" class="btn btn-danger">Borrar</button>
-                  <!--a class="btn btn-danger" href="#/links/delete/${ID}">Borrar</a-->
-                  <a class="btn btn-secondary" href="#/links/edit/${ID}">Editar</a>
+                  <p class="text-muted">${created_at}</p>
+                  <a class="btn btn-secondary" href="#/links/edit/${ID}"><i class="fa fa-edit"></i> Editar</a>
+                  <button data-id="${ID}" class="btn btn-danger"><i class="fa fa-trash"></i> Borrar</button>
               </div>
           </div>
         </div>

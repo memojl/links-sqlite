@@ -1,3 +1,4 @@
+import {fecha} from '../app/functions.js';
 /* VARIABLES CONSTANTES*/
 var loc = window.location;
 const host = loc.host;
@@ -10,6 +11,13 @@ const api_url = page_url + 'api/';
 function btnAdd(){
   const btnForm = document.getElementById('form-add');//console.log(btnForm);
   btnForm.addEventListener('submit', btnGuardar);
+  fechaId();
+}
+
+function fechaId(){
+  let inputFecha = document.getElementById('fc');
+  inputFecha.value = fecha();
+  setTimeout(fechaId,1000);
 }
 
 function btnGuardar(e){
@@ -56,6 +64,7 @@ function linksAdd(){
       console.log('linksAdd Activado');
       btnAdd();
     },1000);
+    
   }
   
   export {linksAdd};

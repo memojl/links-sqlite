@@ -143,28 +143,20 @@ function fecha() {
   return fecha;
 }
 
-//Fecha de Actuaización
-function fecha_hora_update(val) {
-  const inputUpdate = document.querySelector("#f_update");
-  const fecha1 = fecha();
-  if(val==1){
-  setTimeout(fecha_hora_update, 1000);
-  }
-  if (mod=='tarjetas' || mod=='empresas' || mod=='perfil') {
-    inputUpdate.value = fecha1;
-  }
+//Fecha de Actualización
+function fecha_hora_update(val,inputId) {
+  const inputUpdate = document.querySelector(inputId);
+  var fecha1 = fecha();
+  inputUpdate.value = fecha1;
+  if(val==1){setTimeout(fecha_hora_update, 1000);}
 }
 
 //Fecha de Creación
-function fecha_hora_create(val) {
-  const inputCreate = document.querySelector("#f_create");
-  const fecha2 = fecha();
-  if(val==1){
-  setTimeout(fecha_hora_create, 1000);
-  }
-  if (mod=='tarjetas' || mod=='empresas' || mod=='perfil') {    
-    inputCreate.value = fecha2;
-  }
+function fecha_hora_create(val,inputId) {
+  const inputCreate = document.querySelector(inputId);
+  var fecha2 = fecha();
+  inputCreate.value = fecha;
+  if(val==1){setTimeout(fecha_hora_create, 1000);}
 }
 
 function footer(){
@@ -175,4 +167,4 @@ function footer(){
 //Configuracion de la funcion: [hora.js].
 
 
-export {filename,getQueryVariable,urlVars,menuWeb,fileExist,getRoutes,getModules,reMod,consoleLocal};
+export {filename,getQueryVariable,urlVars,menuWeb,fileExist,getRoutes,getModules,reMod,consoleLocal,fecha_hora_create,fecha_hora_update,fecha};
