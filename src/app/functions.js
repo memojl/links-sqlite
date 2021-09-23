@@ -45,6 +45,7 @@ function menuWeb(h,no_menu,routes_session){
       menu.classList.add('d-none');
     }
   }
+  
   let token = localStorage.getItem("Token");
   menuList1.classList.remove('d-none');
   menuList2.classList.add('d-none')
@@ -55,7 +56,6 @@ function menuWeb(h,no_menu,routes_session){
       menuList2.classList.remove('d-none');
     }
   }
-  
 }
 
 const fileExist = async (mod,url)=>{
