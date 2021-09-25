@@ -6,7 +6,7 @@ Versión: 1.0.1
 */
 //import './assets/bootstrap-5.0.2/css/bootstrap.min.css';
 //import './assets/font-awesome-5.14.0/css/all.min.css';
-import './assets/css/style.css';
+//import './assets/css/style.css';
 import './assets/bootstrap-5.0.2/js/bootstrap.bundle.min.js';
 import {consola} from './app/console.js';
 import {inicio,variables} from './app/lib.js';
