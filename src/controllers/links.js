@@ -6,10 +6,10 @@ const dominio = loc.origin + '/';
 const path_url1 = loc.pathname;
 var path_url = path_url1.replace("/", "");
 var page_url = dominio + path_url;
-const api_url = page_url + 'api/';
+const api_url = dominio + 'MisSitios/links/api/';
 
 const linksList = async () => {
-  let url_get = 'http://localhost/MisSitios/links/api/v1/links/';
+  let url_get = api_url + 'v1/links/';
   const response = await fetch(url_get);
   const data = await response.json();
   //consoleLocal('log',data);
@@ -69,7 +69,7 @@ const linksList = async () => {
             //ID: id,
             token: Token
           }
-          const url_delete = 'http://localhost/MisSitios/links/api/v1/links/' + id;//console.warn(url_post);  
+          const url_delete = api_url + 'v1/links/' + id;//console.warn(url_post);  
           fetch(url_delete,{
             method: 'DELETE',
             headers: {

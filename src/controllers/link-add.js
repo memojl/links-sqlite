@@ -6,7 +6,7 @@ const dominio = loc.origin + '/';
 const path_url1 = loc.pathname;
 var path_url = path_url1.replace("/", "");
 var page_url = dominio + path_url;
-const api_url = page_url + 'api/';
+const api_url = dominio + 'MisSitios/links/api/';
 
 function btnAdd(){
   const btnForm = document.getElementById('form-add');//console.log(btnForm);

@@ -6,7 +6,7 @@ const path_url1 = loc.pathname; //console.warn(path_url1);
 //var build = path_url1.replace("build/", "");
 var path_url = path_url1.replace("/", ""); //console.warn(path_url);
 var page_url = dominio + path_url;
-//const api_url = page_url + 'api/';
+const api_url = dominio + 'MisSitios/links/api/';
 
 function btnEdit(){
     const btnForm = document.getElementById('form-edit');//console.log(btnForm);
@@ -16,7 +16,7 @@ function btnEdit(){
 const formEdit = async (id)=>{
   const formulario = document.getElementById('contentForm');  
   //let api_url = api_url + 'v1/links/'+id;console.log(api_url);
-  let url_get ='http://localhost/MisSitios/links/api/v1/links/'+id; console.log(url_get);
+  let url_get = api_url + 'v1/links/'+id; console.log(url_get);
   const response = await fetch(url_get);
   const data = await response.json();
   //consoleLocal('log',data);
@@ -82,8 +82,8 @@ function btnEditar(e){
       token: Token
   }
   //console.log(datos);
-  const url_post = 'http://localhost/MisSitios/links/api/v1/links/'+id;//console.warn(url_post);  
-  fetch(url_post,{
+  const url_put = api_url + 'v1/links/'+id;//console.warn(url_post);  
+  fetch(url_put,{
       method: 'PUT',
       headers: {
           'Content-Type':'application/json'
