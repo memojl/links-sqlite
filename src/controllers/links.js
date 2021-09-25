@@ -9,8 +9,8 @@ var page_url = dominio + path_url;
 const api_url = page_url + 'api/';
 
 const linksList = async () => {
-  let url = 'http://localhost/MisSitios/links/api/v1/links/';
-  const response = await fetch(url);
+  let url_get = 'http://localhost/MisSitios/links/api/v1/links/';
+  const response = await fetch(url_get);
   const data = await response.json();
   //consoleLocal('log',data);
   data.forEach(element => {
@@ -53,7 +53,8 @@ const linksList = async () => {
   let Token = tok2.replace('"', '');//console.log('TOKEN: ' + Token);
 
     lista.addEventListener('click', (e)=>{
-      const id = e.target.getAttribute('data-id');//console.log(id);
+      const id = e.target.getAttribute('data-id');console.log(id);
+      if(id!=null){
       Swal.fire({
         title: '¿Esta seguro de eliminar el registro (' + id + ')?',
         text: "¡Esta operación no se puede revertir!",
@@ -68,8 +69,8 @@ const linksList = async () => {
             //ID: id,
             token: Token
           }
-          const url_post = api_url + 'v1/links/' + id;//console.warn(url_post);  
-          fetch(url_post,{
+          const url_delete = 'http://localhost/MisSitios/links/api/v1/links/' + id;//console.warn(url_post);  
+          fetch(url_delete,{
             method: 'DELETE',
             headers: {
               'Content-Type':'application/json'
@@ -83,6 +84,7 @@ const linksList = async () => {
           Swal.fire('¡Eliminado!', 'El registro ha sido eliminado.', 'success')
         }
       })
+      }
     })
   //})
 }

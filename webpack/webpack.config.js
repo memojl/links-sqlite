@@ -4,11 +4,11 @@ const plugin = require('html-webpack-plugin');
 module.exports = {
   entry: './src/index.js',
   output: {
-    path: path.resolve(__dirname, 'build'),
+    path: path.resolve(__dirname, './../build'),
     filename: 'bundle.js',
   },
   devServer: {
-    contentBase: path.join(__dirname, 'build'),
+    contentBase: path.join(__dirname, './../build'),
     compress: true,
     port: 9000,
   },
