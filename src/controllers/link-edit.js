@@ -6,7 +6,7 @@ const path_url1 = loc.pathname; //console.warn(path_url1);
 //var build = path_url1.replace("build/", "");
 var path_url = path_url1.replace("/", ""); //console.warn(path_url);
 var page_url = dominio + path_url;
-const api_url = dominio + 'MisSitios/links/api/';
+const api_url = (host!='localhost')? dominio + 'api/' : dominio + 'MisSitios/links/api/';
 
 function btnEdit(){
     const btnForm = document.getElementById('form-edit');//console.log(btnForm);

@@ -6,7 +6,7 @@ const dominio = loc.origin + '/';
 const path_url1 = loc.pathname;
 var path_url = path_url1.replace("/", "");
 var page_url = dominio + path_url;
-const api_url = dominio + 'MisSitios/links/api/';
+const api_url = (host!='localhost')? dominio + 'api/' : dominio + 'MisSitios/links/api/';
 
 const linksList = async () => {
   let url_get = api_url + 'v1/links/';
