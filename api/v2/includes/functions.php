@@ -2,19 +2,7 @@
 //Campo ID
 function Identificador(){
 global $tabla;
-    switch (true) {
-        case ($tabla=='citas'):
-            $ID='CitaId';
-        break;
-        case ($tabla=='pacientes'):
-            $ID='PacienteId';
-        break;
-        case ($tabla=='usuarios'):
-            $ID='UsuarioId';
-        break;
-        case ($tabla=='usuarios_token'):
-            $ID='TokenId';
-        break;
+    switch ($tabla) {
         default:
             $ID='ID';
         break;
