@@ -9,5 +9,5 @@ package-lock.json
 api/v1/includes/scfg.php
 api/v2/includes/scfg.php
 admin/scfg.php
-db/
+api/db/
 .env
