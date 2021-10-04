@@ -1,17 +1,22 @@
 <?php
 //File of settings...
-$path_file = 'scfg.php';
-if(file_exists($path_file)){
-    include $path_file;
+function searchFile($path_file){
+ return $val=(file_exists($path_file))?1:0;
+}
+
+$path_file = '../../admin/scfg.php';
+$ex_scfg = searchFile($path_file);
+if($ex_scfg==1){
+    include '../../admin/scfg.php';
 }else{
-    include '../../admin/'.$path_file;
+    include 'scfg.php';
 }
 
 //Protec tables
 $tab_signup = $DBprefix.'signup'; //($ex_scfg==1 || $DBprefix!='')?$DBprefix.'signup':'signup';
 $tab_token = $DBprefix.'token'; //($ex_scfg==1 || $DBprefix!='')?$DBprefix.'token':'token';
 
-/*Function to connect to the database*********************************************************/
+/*Functions to connect to the database*********************************************************/
 //CONEXION PDO
 function connect_pdo(){
     try {
