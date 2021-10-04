@@ -4,10 +4,10 @@ _docs/
 _templates/
 _template/
 conexion/
+build/
 node_modules/
 package-lock.json
 api/v1/includes/scfg.php
 api/v2/includes/scfg.php
 admin/scfg.php
-*.db
 .env
