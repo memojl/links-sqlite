@@ -1,8 +1,8 @@
 <?php 
-$h_s='phponix.webcindario.com';
+$h_s='linksm.herokuapp.com';
 if($_SERVER['HTTP_HOST']==$h_s || $_SERVER['HTTP_HOST']=='www.'.$h_s){
 $db_host = "";// Localhost
-$db_base = "";      // Nombre de la Base de Datos
+$db_base = "db_links";    // Nombre de la Base de Datos
 $db_user = "";      // Usuario de la Base de Datos
 $db_pass = "";     	// Password de la Base de Datos 
 }else{

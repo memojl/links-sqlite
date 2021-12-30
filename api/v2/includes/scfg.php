@@ -1,10 +1,10 @@
 <?php 
-$h_s='phponix.webcindario.com';
+$h_s='linksm.herokuapp.com';
 if($_SERVER['HTTP_HOST']==$h_s || $_SERVER['HTTP_HOST']=='www.'.$h_s){
     // Localhost Production
     $db_host = "";
     // Database Name      
-    $db_base = ""; 
+    $db_base = "db_links"; 
     // Database Username     
     $db_user = "";
     // Database Password       
@@ -18,7 +18,7 @@ if($_SERVER['HTTP_HOST']==$h_s || $_SERVER['HTTP_HOST']=='www.'.$h_s){
 }
 // Settings
 $config = [
-    "driver" => "mysql",
+    "driver" => "sqlite",
     "host" => $db_host,
     "database" => $db_base,
     "username" => $db_user,
