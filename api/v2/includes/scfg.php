@@ -4,7 +4,7 @@ if($_SERVER['HTTP_HOST']==$h_s || $_SERVER['HTTP_HOST']=='www.'.$h_s){
     // Localhost Production
     $db_host = "";
     // Database Name      
-    $db_base = "db_links"; 
+    $db_base = "database"; 
     // Database Username     
     $db_user = "";
     // Database Password       
@@ -12,7 +12,7 @@ if($_SERVER['HTTP_HOST']==$h_s || $_SERVER['HTTP_HOST']=='www.'.$h_s){
 }else{
     // Localhost Development
     $db_host = "localhost";
-    $db_base = "db_links";
+    $db_base = "database";
     $db_user = "root"; 
     $db_pass = "";     	        
 }
