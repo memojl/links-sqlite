@@ -44,7 +44,7 @@ function btnGuardar(e){
       token: Token
   }
   //console.log(datos);
-  const url_post = api_url + 'v1/links';//console.warn(url_post);  
+  const url_post = api_url + 'v2/links';//console.warn(url_post);  
   fetch(url_post,{
       method: 'POST',
       headers: {
