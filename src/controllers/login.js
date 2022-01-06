@@ -40,7 +40,8 @@ function btnGuardar(e){
         if(token!=null && token!='undefined'){
             location.href= dominio + path_url + '#/dashboard';
         }else{
-            document.getElementById('msj-error').innerHTML = '<div class="alert alert-danger" role="alert">Usuario o Contraseña Incorrectos</div>';
+            let msj = document.getElementById('msj-error');
+            msj.innerHTML = `<div class="alert alert-danger" role="alert">Usuario o Contraseña Incorrectos</div>`;
         }
     })
     .catch(err=>console.log(err));    
