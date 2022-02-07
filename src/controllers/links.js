@@ -12,7 +12,8 @@ const linksList = async () => {
   let url_get = api_url + 'v2/links/';
   const response = await fetch(url_get);
   const data = await response.json();
-  //consoleLocal('log',data);
+  //let datos = data.data;
+  //console.log(datos);
   data.forEach(element => {
     const {ID, title, url, description, cate, user_id, created_at} = element;
     let list = document.querySelector('#list');
