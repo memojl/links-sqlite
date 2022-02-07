@@ -3,6 +3,18 @@
 function Identificador(){
 global $tabla;
     switch ($tabla) {
+        case ($tabla=='citas'):
+            $ID='CitaId';
+        break;
+        case ($tabla=='pacientes'):
+            $ID='PacienteId';
+        break;
+        case ($tabla=='usuarios'):
+            $ID='UsuarioId';
+        break;
+        case ($tabla=='usuarios_token'):
+            $ID='TokenId';
+        break;
         default:
             $ID='ID';
         break;
@@ -82,8 +94,7 @@ function formatearPost($key){
 
 //Verificar Token
 function verificarToken($token){
-global $conec,$DBprefix,$tab_token;
-    //$tabla='token';
+global $conec,$tab_token;
     $sql = $conec->prepare("SELECT * FROM $tab_token WHERE Token=:token AND Estado='Activo' ORDER BY ID DESC");
     $sql->bindValue(':token', $token);
     $sql->execute();
@@ -91,9 +102,19 @@ global $conec,$DBprefix,$tab_token;
     return $json;
 }
 
+//Check UserId Token
+function verificarUserToken($id){
+global $conec,$tab_token;
+    $sql = $conec->prepare("SELECT * FROM $tab_token WHERE ID_user=:id AND Estado='Activo' ORDER BY ID DESC");
+    $sql->bindValue(':id', $id);
+    $sql->execute();
+    $json=$sql->fetch(PDO::FETCH_ASSOC);
+    return $json['Estado'];
+}
+
 //INDEX
 function all(){
-global $conec, $tabla;
+global $conec, $tabla, $sel_apiType, $sel_sesionToken;
     $sql = $conec->prepare("SELECT * FROM $tabla");
     $sql->execute();
     $sql->setFetchMode(PDO::FETCH_ASSOC);
@@ -101,12 +122,29 @@ global $conec, $tabla;
     //mysqli_set_charset($conec, 'utf8');
     header("HTTP/1.1 200 OK");
     header('Content-Type: application/json');
-    echo json_encode($data);
+    if($sel_apiType=='restfull'){
+        $res['data'] = $data;
+        $res['apiType'] = $sel_apiType;
+        $res['Token'] = $_COOKIE['token'];
+        echo json_encode($res);
+    }else{
+        echo json_encode($data);
+    }
+}
+
+function allToken(){
+global $tokenCookie, $sel_apiType, $sel_sesionToken;
+    $validar = verificarToken($tokenCookie);
+    if($validar!=NULL && $sel_apiType=='restfull'){
+        all();
+    }else{
+        Error('ERROR: La sesión a caducado'); 
+    }
 }
 
 //STORE
 function store($id){
-global $conec, $tabla, $IdT;
+global $conec, $tabla, $IdT, $tokenCookie, $sel_apiType, $sel_sesionToken;
     $sql = $conec->prepare("SELECT * FROM $tabla WHERE $IdT=:id");
     $sql->bindValue(':id', $id);
     $sql->execute();
@@ -114,7 +152,24 @@ global $conec, $tabla, $IdT;
     $data[]=$json;
     header("HTTP/1.1 200 OK");
     header('Content-Type: application/json');
-    echo json_encode($data);
+    if($sel_apiType=='restfull'){
+        $res['data'] = $data;
+        $res['apiType'] = $sel_apiType;
+        $res['Token'] = $_COOKIE['token'];
+        echo json_encode($res);
+    }else{
+        echo json_encode($data);
+    }
+}
+
+function storeToken($id){
+global $id, $tokenCookie, $sel_apiType, $sel_sesionToken;
+    $validar = verificarToken($tokenCookie);
+    if($validar!=NULL && $sel_apiType=='restfull'){
+        store($id);
+    }else{
+        Error('ERROR: La sesión a caducado'); 
+    }
 }
 
 //INSERT
@@ -184,7 +239,6 @@ global $conec,$tabla,$_DEL,$IdT;
 //LOGIN
 function login(){
 global $conec,$DBprefix,$tab_signup,$tab_token,$date,$_POST,$dbSQLite;
-    //$tabla='signup';
     $U=(isset($_POST['username']))?$_POST['username']:'';
     $P=(isset($_POST['password']))?$_POST['password']:'';
     $input=$_POST;
@@ -205,7 +259,6 @@ global $conec,$DBprefix,$tab_signup,$tab_token,$date,$_POST,$dbSQLite;
     $us = $sesid['username'];
     $pa = $sesid['password'];
     if($us==$U || $pa==$P){
-        //$tabla='token';
         $token = sha1(uniqid(rand(),true));//Generador de Token //Token();
         $tok = "INSERT INTO $tab_token (ID_user,Token,Estado,Fecha) VALUES ('{$ID}','{$token}','Activo','{$date}')";
         $tok = $conec->prepare($tok);
