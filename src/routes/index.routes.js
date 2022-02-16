@@ -37,4 +37,4 @@ function controlRoutes(route,id){ consoleLocal('log','route='+route);
   if(route=='links/edit'){linksEdit(id);}
 }
 
-export {no_menu,routes_session,router,controlRoutes};
+export {no_menu,menu_web,routes_session,router,controlRoutes};

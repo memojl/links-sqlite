@@ -41,7 +41,7 @@ function btnGuardar(e){
             location.href= dominio + path_url + '#/dashboard';
         }else{
             let msj = document.getElementById('msj-error');
-            msj.innerHTML = `<div class="alert alert-danger" role="alert">Usuario o Contraseña Incorrectos</div>`;    
+            msj.innerHTML = `<div class="alert alert-danger" role="alert">Usuario o Contraseña Incorrectos</div>`;
         }
     })
     .catch(err=>console.log(err));    
