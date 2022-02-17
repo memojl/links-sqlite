@@ -7,6 +7,6 @@
     <title>API - SQLITE</title>
 </head>
 <body>
-    <a href="/api/v2/">Ir a Api</a>
+    <a href="./api/v2/">Ir a Api</a>
 </body>
 </html>
