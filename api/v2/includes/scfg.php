@@ -1,5 +1,5 @@
 <?php 
-$h_s='linksm.herokuapp.com';
+$h_s='links.herokuapp.com';
 if($_SERVER['HTTP_HOST']==$h_s || $_SERVER['HTTP_HOST']=='www.'.$h_s){
     // Localhost Production
     $db_host = "us-cdbr-east-03.cleardb.com";
@@ -18,7 +18,7 @@ if($_SERVER['HTTP_HOST']==$h_s || $_SERVER['HTTP_HOST']=='www.'.$h_s){
 }
 // Settings
 $config = [
-    "driver" => "mysql",
+    "driver" => "sqlite",
     "host" => $db_host,
     "database" => $db_base,
     "username" => $db_user,

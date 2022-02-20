@@ -1,5 +1,5 @@
 <?php 
-$h_s='linksm.herokuapp.com';
+$h_s='links.herokuapp.com';
 if($_SERVER['HTTP_HOST']==$h_s || $_SERVER['HTTP_HOST']=='www.'.$h_s){
 $db_host = "us-cdbr-east-03.cleardb.com";// Localhost
 $db_base = "heroku_4508b8af49308d8";      // Nombre de la Base de Datos
@@ -12,7 +12,7 @@ $db_user = "root";        	// Usuario de la Base de Datos
 $db_pass = "";     	// Password de la Base de Datos
 }
 $config = [
-    "driver" => "mysql",
+    "driver" => "sqlite",
     "host" => $db_host,
     "database" => $db_base,
     "username" => $db_user,
