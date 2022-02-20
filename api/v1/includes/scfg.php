@@ -2,9 +2,9 @@
 $h_s='links-sqlite.herokuapp.com';
 if($_SERVER['HTTP_HOST']==$h_s || $_SERVER['HTTP_HOST']=='www.'.$h_s){
 $db_host = "us-cdbr-east-03.cleardb.com";// Localhost
-$db_base = "heroku_4508b8af49308d8";      // Nombre de la Base de Datos
-$db_user = "b6e038dc526164";      // Usuario de la Base de Datos
-$db_pass = "9ee0c2b4";     	// Password de la Base de Datos 
+$db_base = "";      // Nombre de la Base de Datos
+$db_user = "";      // Usuario de la Base de Datos
+$db_pass = "";     	// Password de la Base de Datos 
 }else{
 $db_host = "localhost";     // Localhost
 $db_base = "db_links";    // Nombre de la Base de Datos
@@ -23,10 +23,12 @@ $config = [
 $DBprefix = "";		// Prefijo para las tablas de la Base de datos.
 $path_root = ($_SERVER['HTTP_HOST']=='localhost')?'MisSitios/links/':'';
 
-/*DEFINICION DE VARIABLES PARA PHP7*/
-define('DB_HOST',$db_host);
-define('DB_USER',$db_user);
-define('DB_PASSWORD',$db_pass);
-define('DB_DB',$db_base);
-
+/*DEFINITION OF VARIABLES FOR PHP7*/
+define('DB_DRIVER',$config['driver']);
+define('DB_HOST',$config['host']);
+define('DB_USER',$config['username']);
+define('DB_PASSWORD',$config['password']);
+define('DB_DB',$config['database']);
+define('DB_PORT',$config['port']);
+define('DB_CHARSET',$config['charset']);
 ?>

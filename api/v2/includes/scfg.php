@@ -4,11 +4,11 @@ if($_SERVER['HTTP_HOST']==$h_s || $_SERVER['HTTP_HOST']=='www.'.$h_s){
     // Localhost Production
     $db_host = "us-cdbr-east-03.cleardb.com";
     // Database Name      
-    $db_base = "heroku_4508b8af49308d8"; 
+    $db_base = ""; 
     // Database Username     
-    $db_user = "b6e038dc526164";
+    $db_user = "";
     // Database Password       
-    $db_pass = "9ee0c2b4";
+    $db_pass = "";
 }else{
     // Localhost Development
     $db_host = "localhost";
