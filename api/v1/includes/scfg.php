@@ -1,10 +1,10 @@
 <?php 
 $h_s='linksm.herokuapp.com';
 if($_SERVER['HTTP_HOST']==$h_s || $_SERVER['HTTP_HOST']=='www.'.$h_s){
-$db_host = "";// Localhost
-$db_base = "db_links";    // Nombre de la Base de Datos
-$db_user = "";      // Usuario de la Base de Datos
-$db_pass = "";     	// Password de la Base de Datos 
+$db_host = "us-cdbr-east-03.cleardb.com";// Localhost
+$db_base = "heroku_4508b8af49308d8";      // Nombre de la Base de Datos
+$db_user = "b6e038dc526164";      // Usuario de la Base de Datos
+$db_pass = "9ee0c2b4";     	// Password de la Base de Datos 
 }else{
 $db_host = "localhost";     // Localhost
 $db_base = "db_links";    // Nombre de la Base de Datos
