@@ -1,5 +1,5 @@
 <?php 
-$h_s='links.herokuapp.com';
+$h_s='links-sqlite.herokuapp.com';
 if($_SERVER['HTTP_HOST']==$h_s || $_SERVER['HTTP_HOST']=='www.'.$h_s){
     // Localhost Production
     $db_host = "us-cdbr-east-03.cleardb.com";
