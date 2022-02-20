@@ -12,7 +12,7 @@ $db_user = "root";        	// Usuario de la Base de Datos
 $db_pass = "";     	// Password de la Base de Datos
 }
 $config = [
-    "driver" => "mysql",
+    "driver" => "sqlite",
     "host" => $db_host,
     "database" => $db_base,
     "username" => $db_user,
