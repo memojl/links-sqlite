@@ -1,14 +1,14 @@
 <?php 
-$h_s='linksm.herokuapp.com';
+$h_s='links.herokuapp.com';
 if($_SERVER['HTTP_HOST']==$h_s || $_SERVER['HTTP_HOST']=='www.'.$h_s){
     // Localhost Production
-    $db_host = "";
+    $db_host = "us-cdbr-east-03.cleardb.com";
     // Database Name      
-    $db_base = "db_links"; 
+    $db_base = "heroku_4508b8af49308d8"; 
     // Database Username     
-    $db_user = "";
+    $db_user = "b6e038dc526164";
     // Database Password       
-    $db_pass = "";     	
+    $db_pass = "9ee0c2b4";
 }else{
     // Localhost Development
     $db_host = "localhost";
